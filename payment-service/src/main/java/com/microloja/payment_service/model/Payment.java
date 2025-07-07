@@ -1,7 +1,6 @@
 package com.microloja.payment_service.model;
 
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -14,12 +13,13 @@ public class Payment {
     private Long id;
 
     private String orderId;
-
-    private BigDecimal amount;
-
     private String product;
-
+    private Integer quantity;
+    private BigDecimal total;
     private LocalDateTime processedAt;
+
+    @Enumerated(EnumType.STRING)
+    private PaymentStatus status;
 
     public Long getId() {
         return id;
@@ -37,14 +37,6 @@ public class Payment {
         this.orderId = orderId;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
     public String getProduct() {
         return product;
     }
@@ -53,11 +45,35 @@ public class Payment {
         this.product = product;
     }
 
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+
+    public void setTotal(BigDecimal total) {
+        this.total = total;
+    }
+
     public LocalDateTime getProcessedAt() {
         return processedAt;
     }
 
     public void setProcessedAt(LocalDateTime processedAt) {
         this.processedAt = processedAt;
+    }
+
+    public PaymentStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(PaymentStatus status) {
+        this.status = status;
     }
 }
