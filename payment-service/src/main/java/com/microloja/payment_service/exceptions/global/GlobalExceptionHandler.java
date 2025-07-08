@@ -2,6 +2,7 @@ package com.microloja.payment_service.exceptions.global;
 
 import com.microloja.payment_service.exceptions.PaymentNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -16,6 +17,12 @@ import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<Object> handleConstraintViolation(ConstraintViolationException ex, HttpServletRequest request) {
+        String message = ex.getMessage();
+        return buildResponseEntity(HttpStatus.BAD_REQUEST, message, request.getRequestURI());
+    }
 
     @ExceptionHandler(PaymentNotFoundException.class)
     public ResponseEntity<Object> handlePaymentNotFound(PaymentNotFoundException ex, HttpServletRequest request) {

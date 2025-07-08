@@ -21,6 +21,22 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     private PaymentStatus status;
 
+    public Payment() {
+    }
+    public Payment(Long id, String orderId, String product, Integer quantity, BigDecimal total, LocalDateTime processedAt, BigDecimal amount, PaymentStatus status) {
+        this.id = id;
+        this.orderId = orderId;
+        this.product = product;
+        this.quantity = quantity;
+        this.total = total;
+        this.processedAt = processedAt;
+        this.amount = amount;
+        this.status = status;
+    }
+
+    public Payment(long l, String number, BigDecimal bigDecimal, String produtoA, LocalDateTime now) {
+    }
+
     public Long getId() {
         return id;
     }
