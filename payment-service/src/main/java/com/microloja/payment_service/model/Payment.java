@@ -17,7 +17,7 @@ public class Payment {
     private Integer quantity;
     private BigDecimal total;
     private LocalDateTime processedAt;
-
+    private BigDecimal amount;
     @Enumerated(EnumType.STRING)
     private PaymentStatus status;
 
@@ -67,6 +67,14 @@ public class Payment {
 
     public void setProcessedAt(LocalDateTime processedAt) {
         this.processedAt = processedAt;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
     }
 
     public PaymentStatus getStatus() {
