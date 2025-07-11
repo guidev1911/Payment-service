@@ -13,8 +13,8 @@ public class SwaggerConfig {
     public OpenAPI apiInfo() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Microservice")
-                        .description("Microserviço de pagamento")
+                        .title("Micro serviço de pagamento")
+                        .description("Microservice para simular pagamento")
                         .version("1.0"));
     }
 
