@@ -56,7 +56,7 @@ class PaymentControllerTest {
 
         Mockito.when(paymentService.findAll()).thenReturn(List.of(dto));
 
-        mockMvc.perform(get("/api/payments"))
+        mockMvc.perform(get("/payments"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id").value(1L))
                 .andExpect(jsonPath("$[0].product").value("Produto Teste"));
@@ -74,7 +74,7 @@ class PaymentControllerTest {
 
         Mockito.when(paymentService.findById(id)).thenReturn(dto);
 
-        mockMvc.perform(get("/api/payments/{id}", id))
+        mockMvc.perform(get("/payments/{id}", id))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(id))
                 .andExpect(jsonPath("$.product").value("Produto XYZ"));
@@ -87,12 +87,12 @@ class PaymentControllerTest {
         Mockito.when(paymentService.findById(invalidId))
                 .thenThrow(new PaymentNotFoundException(invalidId));
 
-        mockMvc.perform(get("/api/payments/{id}", invalidId))
+        mockMvc.perform(get("/payments/{id}", invalidId))
                 .andExpect(status().isNotFound());
     }
     @Test
     void testGetById_WhenNegativeId_ShouldReturn400() throws Exception {
-        mockMvc.perform(get("/api/payments/{id}", -1L))
+        mockMvc.perform(get("/payments/{id}", -1L))
                 .andExpect(status().isBadRequest());
     }
 }
