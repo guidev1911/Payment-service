@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/payments")
+@RequestMapping("/api/payments")
 @Validated
 public class PaymentController {
 
@@ -28,13 +28,13 @@ public class PaymentController {
 
     @GetMapping
     public ResponseEntity<List<PaymentResponseDTO>> getAll() {
-        logger.info("GET /payments");
+        logger.info("GET /api/payments");
         return ResponseEntity.ok(service.findAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<PaymentResponseDTO> getById(@PathVariable @Positive Long id) {
-        logger.info("GET /payments/{}", id);
+        logger.info("GET /api/payments/{}", id);
         return ResponseEntity.ok(service.findById(id));
     }
 }
