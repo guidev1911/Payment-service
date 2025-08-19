@@ -39,7 +39,7 @@ public class PaymentService {
         PaymentResponseDTO dto = new PaymentResponseDTO();
         dto.setId(payment.getId());
         dto.setOrderId(payment.getOrderId());
-        dto.setAmount(payment.getAmount());
+        dto.setTotal(payment.getTotal());
         dto.setProduct(payment.getProduct());
         dto.setProcessedAt(payment.getProcessedAt());
         return dto;

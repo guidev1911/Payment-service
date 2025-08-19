@@ -50,7 +50,7 @@ class PaymentControllerTest {
         PaymentResponseDTO dto = new PaymentResponseDTO();
         dto.setId(1L);
         dto.setProduct("Produto Teste");
-        dto.setAmount(new BigDecimal("99.99"));
+        dto.setTotal(new BigDecimal("99.99"));
         dto.setOrderId("5");
         dto.setProcessedAt(LocalDateTime.now());
 
@@ -68,7 +68,7 @@ class PaymentControllerTest {
         PaymentResponseDTO dto = new PaymentResponseDTO();
         dto.setId(id);
         dto.setProduct("Produto XYZ");
-        dto.setAmount(new BigDecimal("199.99"));
+        dto.setTotal(new BigDecimal("199.99"));
         dto.setOrderId("10");
         dto.setProcessedAt(LocalDateTime.now());
 

@@ -7,7 +7,7 @@ public class PaymentResponseDTO {
     private Long id;
     private String orderId;
     private String product;
-    private BigDecimal amount;
+    private BigDecimal total;
     private LocalDateTime processedAt;
 
     public Long getId() {
@@ -34,12 +34,12 @@ public class PaymentResponseDTO {
         this.product = product;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
+    public BigDecimal getTotal() {
+        return total;
     }
 
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
+    public void setTotal(BigDecimal total) {
+        this.total = total;
     }
 
     public LocalDateTime getProcessedAt() {
@@ -50,3 +50,5 @@ public class PaymentResponseDTO {
         this.processedAt = processedAt;
     }
 }
+
+
